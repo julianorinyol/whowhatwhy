@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>hangout show</p>
-
 <div id='calendar' class='col-md-8'></div>
-<% binding.pry %>
+<div id='hud'>
+    <div id='red' class='color-square'></div>
+    <p>name here</p>
+    <div id='green' class='color-square'></div>
+    <p>name here</p>
+    <div id='blue' class='color-square'></div>
+    <p>name here</p>
+    <div id='orange' class='color-square'></div>
+    <p>name here</p>
+</div>
 <script>
 var events = <%= raw @events.to_json %>;
 
@@ -18,7 +26,7 @@ $(document).ready(function() {
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
       },
-      defaultDate: '2014-06-12',
+      defaultDate: Date.now(),
       defaultView: 'agendaWeek',
       editable: true,
       events: events

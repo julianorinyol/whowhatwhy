@@ -3,7 +3,9 @@ class UsersController < ApplicationController
     if current_user
       @user = current_user
       @calendars = current_user.calendars 
-      @events = current_user.events
+      
+      @events = current_user.events.where.not('start': nil)
+
       @hangouts = current_user.hangouts
     end
   end
