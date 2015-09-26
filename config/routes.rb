@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :hangouts
-  root to: 'visitors#index'
+  get 'profile', to: 'users#show'
+  # root to: 'visitors#index'
+  root to: 'users#show'
+
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin
   get '/signout' => 'sessions#destroy', :as => :signout
