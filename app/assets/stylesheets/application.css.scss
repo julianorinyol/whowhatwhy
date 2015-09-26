@@ -9,7 +9,7 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
+ *= require fullcalendar
  *= require_tree .
  *= require_self
  */
@@ -54,4 +54,37 @@
   .current-month {}
 
   .has-events {}
+}
+
+/*************************************888*/
+
+.group-container {
+  // background: goldenrod;
+  // height: 30px;
+  // width: 30px;
+  margin: 5px;
+  float:left;
+}
+#big-white-square {
+  background: white;
+  MARGIN-top: 20px;
+  padding-top: 5px;
+  padding-left: 3%;
+  height: 800px;
+}
+
+#question-text {
+  font-size: 1.7em;
+}
+
+.grey-square {
+  background: lightgrey;
+  display: block;
+}
+#add-emails-box {
+
+}
+
+.add-email-field {
+  background: white;
 }

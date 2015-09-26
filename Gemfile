@@ -39,3 +39,5 @@ group :test do
 end
 
 gem 'simple_calendar'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'

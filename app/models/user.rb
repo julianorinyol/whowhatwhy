@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :hangouts
   has_many :events
   has_many :calendars
+  has_many :groups
 
   def get_calendars
     uri = URI.parse('https://www.googleapis.com/calendar/v3/users/me/calendarList')

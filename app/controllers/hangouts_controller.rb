@@ -19,6 +19,7 @@ class HangoutsController < ApplicationController
   # GET /hangouts/new
   def new
     @hangout = Hangout.new
+    @group = Group.new
     @hangout.owner_id = current_user.id
   end
 
