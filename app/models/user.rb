@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   after_initialize :set_default_role, :if => :new_record?
   has_many :hangouts
   has_many :events
+  has_many :calendars
 
   def get_calendars
     uri = URI.parse('https://www.googleapis.com/calendar/v3/users/me/calendarList')
@@ -10,19 +11,22 @@ class User < ActiveRecord::Base
     https.use_ssl = true
     req = Net::HTTP::Get.new(uri.path, initheader = {'Authorization' => 'Bearer ' + google_auth_token,'Content-Type' =>'application/json'})
     res = https.request(req)
-    binding.pry
-    # res = Net::HTTP.get_response(uri)
-
-    # req['foo'] = 'bar'
-    # req.body = "[ #{@toSend} ]"
-    # puts "Response #{res.code} #{res.message}: #{res.body}"
-
-# return the id!
+    body = JSON.parse(res.body)
+    # old_calendars = Calendar.where(user_id: id)
+    # binding.pry
+    body['items'].each do |calendar|
+      cal = Calendar.where(primary: !!calendar['primary'], google_id: calendar['id'], summary: calendar['summary'], user_id: id ).first_or_create
+      cal.get_events
+    end
   end
-
-  def get_events
-
-  end
+  # create_table "calendars", force: :cascade do |t|
+  #   t.boolean  "primary"
+  #   t.string   "google_id"
+  #   t.datetime "created_at", null: false
+  #   t.datetime "updated_at", null: false
+  #   t.string   "summary"
+  # end
+  
 
   def set_default_role
     if User.count == 0
