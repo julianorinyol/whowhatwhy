@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926142358) do
+ActiveRecord::Schema.define(version: 20150926201738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150926142358) do
     t.string   "owner_id"
     t.boolean  "all_answered"
     t.integer  "group_id"
+    t.string   "title"
   end
 
   create_table "hangouts_users", id: false, force: :cascade do |t|

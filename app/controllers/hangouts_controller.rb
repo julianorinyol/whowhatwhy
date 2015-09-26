@@ -18,9 +18,8 @@ class HangoutsController < ApplicationController
 
   # GET /hangouts/new
   def new
-    @hangout = Hangout.new
     @group = Group.new
-    @hangout.owner_id = current_user.id
+    @hangout = Hangout.new
   end
 
   # GET /hangouts/1/edit
@@ -31,6 +30,7 @@ class HangoutsController < ApplicationController
   # POST /hangouts.json
   def create
     @hangout = Hangout.new(hangout_params)
+    @hangout.owner_id = current_user.id
 
     respond_to do |format|
       if @hangout.save

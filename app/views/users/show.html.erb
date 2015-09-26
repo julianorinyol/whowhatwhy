@@ -1,23 +1,32 @@
-<% if @user %>
+    <% if @user %>
+    <% end  %>
+    <% binding.pry %>
+    <div id='left-side'class='col-md-2'>
+      <p>my hangouts</p>
+        <% if @hangouts %>
+        <table>
+        <% @hangouts.each do |hang| %>
+         <tr>
+            <td><%= link_to hangouts_path hang %></td>
+        </tr>
+          <% end %>
+        <% end %>
+        </table>
+    </div>
 
+    <div id='big-white-squarey'class='col-md-8'>
+      <p><%= link_to 'Create Hangout', new_hangout_path %></p>
+      <div id='calendar' ></div>
+    </div>
 
-
-<% end  %>
-
-<div id='big-white-square'>
-  <p><%= link_to 'Create Hangout', new_hangout_path %></p>
-  
-  <div id='calendar' class='col-md-8'></div>
-
-  <p>my hangouts</p>
-  <% if @hangouts %>
-  <% @hangouts.each do |hang| %>
-    <%= link_to hangouts_path hang %>
-    <% end %>
-  <% end %>
-  <p>my calendar</p>
-  <p>activities</p>
-</div>
+    <table id='groups-table' class='col-md-2'>
+      <th>Groups</th>
+      <tbody>
+        <tr><td>Work</td></tr> 
+        <tr><td>Girlfriend</td></tr>
+        <tr><td>Homies</td></tr>
+      </tbody>
+    </table>
 
 <script>
 var events = <%= raw @events.to_json %>;
@@ -34,66 +43,9 @@ $(document).ready(function() {
         right: 'month,agendaWeek,agendaDay'
       },
       defaultDate: Date.now(),
-      // defaultDate: '2014-06-12',
       defaultView: 'agendaWeek',
       editable: true,
       events: events
-    //   events: [
-    //   {
-    //     title: 'All Day Event',
-    //     start: '2015-02-01'
-    //   },
-    //   {
-    //     title: 'Long Event',
-    //     start: '2015-02-07',
-    //     end: '2015-02-10'
-    //   },
-    //   {
-    //     id: 999,
-    //     title: 'Repeating Event',
-    //     start: '2015-02-09T16:00:00'
-    //   },
-    //   {
-    //     id: 999,
-    //     title: 'Repeating Event',
-    //     start: '2015-02-16T16:00:00'
-    //   },
-    //   {
-    //     title: 'Conference',
-    //     start: '2015-02-11',
-    //     end: '2015-02-13'
-    //   },
-    //   {
-    //     title: 'Meeting',
-    //     start: '2015-02-12T10:30:00',
-    //     end: '2015-02-12T12:30:00'
-    //   },
-    //   {
-    //     title: 'Lunch',
-    //     start: '2015-02-12T12:00:00'
-    //   },
-    //   {
-    //     title: 'Meeting',
-    //     start: '2015-02-12T14:30:00'
-    //   },
-    //   {
-    //     title: 'Happy Hour',
-    //     start: '2015-02-12T17:30:00'
-    //   },
-    //   {
-    //     title: 'Dinner',
-    //     start: '2015-02-12T20:00:00'
-    //   },
-    //   {
-    //     title: 'Birthday Party',
-    //     start: '2015-02-13T07:00:00'
-    //   },
-    //   {
-    //     title: 'Click for Google',
-    //     url: 'http://google.com/',
-    //     start: '2015-02-28'
-    //   }
-    // ]
     })
 
 });

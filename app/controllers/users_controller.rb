@@ -5,7 +5,7 @@ class UsersController < ApplicationController
       @calendars = current_user.calendars 
       
       @events = current_user.events.where.not('start': nil)
-
+      # binding.pry
       @hangouts = current_user.hangouts
     end
   end

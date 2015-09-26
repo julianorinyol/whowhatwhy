@@ -74,6 +74,9 @@
   padding-left: 5%;
   height: 800px;
 }
+#big-white-square {
+  background: white;
+}
 
 #question-text {
   font-size: 1.7em;
@@ -152,4 +155,16 @@
 }
 #orange{
   background: orange;
+}
+
+#groups-table {
+  border: 1px solid black;
+  font-size: 1.2em;
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+  }
+  th {
+    background: red;
+  }
 }
