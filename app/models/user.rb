@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :hangouts
   has_many :events
   has_many :calendars
+  has_many :users
+  has_many :users, through: :groups_users
+  has_many :groups_users
   has_many :groups
 
   def get_calendars

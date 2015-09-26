@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 20150926142358) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id", using: :btree
+  add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id", using: :btree
+
   create_table "hangouts", force: :cascade do |t|
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
