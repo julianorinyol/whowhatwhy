@@ -12,8 +12,10 @@ class HangoutsController < ApplicationController
   # GET /hangouts/1.json
   def show
     if current_user
-      @events = Event.where(user_id: current_user.id).where('start IS NOT NULL')
+      @events = Event.where(user_id: current_user.id).where.not(start: nil)
     end
+    @user_events = { events: @events, color: 'black', textColor: 'yellow' }.to_json
+    
   end
 
   # GET /hangouts/new

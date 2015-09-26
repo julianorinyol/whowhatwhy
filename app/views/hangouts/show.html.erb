@@ -5,7 +5,7 @@
 <div id='calendar' class='col-md-8'></div>
 
 <script>
-var events = <%= raw @events.to_json %>;
+var events = <%= raw @user_events %>;
 
 $(document).ready(function() {
 
@@ -22,34 +22,98 @@ $(document).ready(function() {
         eventSources: [
 
                // your event source
-               {
-                   events: // put the array in the `events` property
-                    events
-                   ,
-                   color: 'black',     // an option!
-                   textColor: 'yellow' // an option!
+             // events
+             {
+               events: [
+                       {
+                           title: 'Event1',
+                           start: '2015-09-28T14:00:00',
+                           end: '2015-09-28T17:00:00'
+                       },
+                       {
+                           title: 'Event2',
+                           start: '2015-09-29T12:00:00',
+                           end: '2015-09-29T17:00:00'
+                       },
+                       {
+                           title: 'Event3',
+                           start: '2015-09-30T14:00:00',
+                           end: '2015-09-30T17:00:00'
+                       },                     
+                       {
+                           title: 'Event3',
+                           start: '2015-09-30T21:00:00',
+                           end: '2015-09-30T23:00:00'
+                       },
+                       {
+                           title: 'Event4',
+                           start: '2015-10-01T10:00:00',
+                           end: '2015-10-01T14:00:00'
+                       },
+                       {
+                           title: 'Event4',
+                           start: '2015-10-01T16:00:00',
+                           end: '2015-10-01T19:00:00'
+                       }
+                       // etc...
+                 ],
+                 color: 'red',   // an option!
+                 textColor: 'black' // an option!
                },
-
-               {
-                events: [ // put the array in the `events` property
+              {
+                events: [
+                      {
+                          title: 'Event1',
+                          start: '2015-09-28T13:00:00',
+                          end: '2015-09-28T17:00:00'
+                      },
+                      {
+                          title: 'Event1',
+                          start: '2015-09-28T19:00:00',
+                          end: '2015-09-28T22:00:00'
+                      },
+                      {
+                          title: 'Event2',
+                          start: '2015-09-29T13:00:00',
+                          end: '2015-09-29T17:00:00'
+                      },                     
+                      {
+                          title: 'Event3',
+                          start: '2015-09-30T13:00:00',
+                          end: '2015-09-30T17:00:00'
+                      },
+                      {
+                          title: 'Event4',
+                          start: '2015-10-01T12:00:00',
+                          end: '2015-10-01T14:00:00'
+                      },
+                      {
+                          title: 'Event4',
+                          start: '2015-10-01T18:00:00',
+                          end: '2015-10-01T21:00:00'
+                      }
+                        // etc...
+                    ],
+                    color: 'blue',   // an option!
+                    textColor: 'black' // an option!
+              },
+              {
+              events: [
                     {
-                        title  : 'event1',
-                        start  : '2015-09-27'
+                        title: 'Opening1',
+                        start: '2015-09-29T19:00:00',
+                        end: '2015-09-29T22:00:00'
                     },
                     {
-                        title  : 'event2',
-                        start  : '2015-09-29',
-                        end    : '2015-09-30'
-                    },
-                    {
-                        title  : 'event3',
-                        start  : '2015-09-29T12:30:00',
+                        title: 'Opening2',
+                        start: '2015-09-30T18:00:00',
+                        end: '2015-09-30T20:00:00'
                     }
-                ],
-                   color: 'blue',     // an option!
-                   textColor: 'red' // an option!
-               }
-
+                      // etc...
+                  ],
+                  color: 'green',   // an option!
+                  textColor: 'black' // an option!
+              }
                // any other event sources...
 
            ]
