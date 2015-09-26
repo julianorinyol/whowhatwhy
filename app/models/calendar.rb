@@ -12,7 +12,9 @@ class Calendar < ActiveRecord::Base
     if !(res.code == '404')
       body = JSON.parse(res.body, :quirks_mode => true)
       body['items'].each do |event|
-        Event.where(start_time: event['start']['dateTime'], end_time: event['end']['dateTime'], user_id: self.user.id, from_google: true, summary: event['summary'] ).first_or_create
+        if !(event['status'] == 'cancelled')
+          Event.where(start_time: event['start']['dateTime'], end_time: event['end']['dateTime'], user_id: self.user.id, from_google: true, summary: event['summary'] ).first_or_create
+        end
       end
     end
   end
