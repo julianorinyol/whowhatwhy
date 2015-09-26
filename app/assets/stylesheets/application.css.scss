@@ -64,27 +64,64 @@
   // width: 30px;
   margin: 5px;
   float:left;
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
 }
 #big-white-square {
   background: white;
   MARGIN-top: 20px;
-  padding-top: 5px;
-  padding-left: 3%;
+  padding-top: 20px;
+  padding-left: 5%;
   height: 800px;
 }
 
 #question-text {
   font-size: 1.7em;
+  margin: 0;
+  margin-bottom: 13px;
 }
 
 .grey-square {
-  background: lightgrey;
+  background: hsla(9, 0%, 90%, 1);
   display: block;
+  button {
+    position: absolute;
+    top: 7px;
+    right: 15px;
+  }
+  div, p {
+    float: left;
+  }
+  div {
+    clear:both;
+  }
+  p {
+    margin-left: 5px;
+  }
 }
 #add-emails-box {
 
 }
 
+
+#second-row {
+  margin-top: 20px;
+  overflow:hidden;
+}
+#maximum-reached {
+    margin: 11% 0px 0 27%;
+    font-size: 1.3em;
+}
+
 .add-email-field {
   background: white;
+  clear:both;
+}
+#click-to-add-more {
+  clear: both;
+}
+
+#next-button {
+  float: right;
+  margin: 0px 30px 0 0;
 }
