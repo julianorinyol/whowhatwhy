@@ -7,7 +7,11 @@
 
 
 <p>my hangouts</p>
-
+<% if @hangouts %>
+<% @hangouts.each do |hang| %>
+  <%= link_to hangouts_path hang %>
+<% end %>
+<% end %>
 <p>my calendar</p>
 
 

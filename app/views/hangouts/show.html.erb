@@ -1,6 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <p>hangout show</p>
+<p>hangout show</p>
+<p>hangout show</p>
+
+<%= month_calendar do |date| %>
+  <%= date.day %>
+<% end %>
+<%= week_calendar do |date| %>
+  <%= date.day %>
+<% end %>
+
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.day %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= event.summary %>
+    </div>
+  <% end %>
+<% end %>
+
 
 <%= link_to 'Edit', edit_hangout_path(@hangout) %> |
 <%= link_to 'Back', hangouts_path %>

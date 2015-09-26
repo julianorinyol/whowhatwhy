@@ -1,5 +1,6 @@
 class HangoutsController < ApplicationController
   before_action :set_hangout, only: [:show, :edit, :update, :destroy]
+  # before_action :user_signed_in?, only: [:show]
 
   # GET /hangouts
   # GET /hangouts.json
@@ -10,11 +11,15 @@ class HangoutsController < ApplicationController
   # GET /hangouts/1
   # GET /hangouts/1.json
   def show
+    if current_user
+      @events = Event.where(user_id: current_user.id).where('start_time IS NOT NULL')
+    end
   end
 
   # GET /hangouts/new
   def new
     @hangout = Hangout.new
+    @hangout.owner_id = current_user.id
   end
 
   # GET /hangouts/1/edit
