@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+
+#super-navbar {
+  background: hsla(197, 100%, 49%, 2);
+}
+#super-title {
+  position: absolute;
+  left: 8px;
+  font-size: 2em;
+  top: 17px;
+  color: white;
+}
