@@ -4,7 +4,7 @@ class CreateCalendars < ActiveRecord::Migration
       t.boolean :primary
       t.string :google_id
       t.timestamps null: false
-      t.string :summary
+      t.string :title
     end
   end
 end

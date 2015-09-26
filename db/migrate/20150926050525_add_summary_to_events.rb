@@ -1,5 +1,5 @@
 class AddSummaryToEvents < ActiveRecord::Migration
   def change
-    add_column :events, :summary, :string
+    add_column :events, :title, :string
   end
 end

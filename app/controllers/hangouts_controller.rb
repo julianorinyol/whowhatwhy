@@ -12,7 +12,7 @@ class HangoutsController < ApplicationController
   # GET /hangouts/1.json
   def show
     if current_user
-      @events = Event.where(user_id: current_user.id).where('start_time IS NOT NULL')
+      @events = Event.where(user_id: current_user.id).where('start IS NOT NULL')
     end
   end
 
