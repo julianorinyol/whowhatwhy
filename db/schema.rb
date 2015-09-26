@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926035003) do
+ActiveRecord::Schema.define(version: 20150926050525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,19 @@ ActiveRecord::Schema.define(version: 20150926035003) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "calendars", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "activities_hangouts", id: false, force: :cascade do |t|
+    t.integer "hangout_id"
+    t.integer "activity_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "user_id"
+    t.boolean  "from_google"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "summary"
   end
 
   create_table "hangouts", force: :cascade do |t|
@@ -33,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150926035003) do
     t.boolean  "all_answered"
   end
 
-  create_table "table_hangouts_users", id: false, force: :cascade do |t|
+  create_table "hangouts_users", id: false, force: :cascade do |t|
     t.integer "hangout_id"
     t.integer "user_id"
   end
@@ -42,9 +52,10 @@ ActiveRecord::Schema.define(version: 20150926035003) do
     t.string   "name"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "role"
+    t.string   "google_auth_token"
   end
 
 end
