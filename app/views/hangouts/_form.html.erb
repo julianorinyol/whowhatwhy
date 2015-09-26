@@ -1,0 +1,17 @@
+<%= form_for(@hangout) do |f| %>
+  <% if @hangout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hangout.errors.count, "error") %> prohibited this hangout from being saved:</h2>
+
+      <ul>
+      <% @hangout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
