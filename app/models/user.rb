@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :hangouts
   has_many :events
   has_many :calendars
+  has_many :users
+  has_many :users, through: :groups_users
+  has_many :groups_users
   has_many :groups
 
   def get_calendars
@@ -17,7 +20,7 @@ class User < ActiveRecord::Base
     # old_calendars = Calendar.where(user_id: id)
     # binding.pry
     body['items'].each do |calendar|
-      cal = Calendar.where(primary: !!calendar['primary'], google_id: calendar['id'], summary: calendar['summary'], user_id: id ).first_or_create
+      cal = Calendar.where(primary: !!calendar['primary'], google_id: calendar['id'], title: calendar['summary'], user_id: id ).first_or_create
       cal.get_events
     end
   end

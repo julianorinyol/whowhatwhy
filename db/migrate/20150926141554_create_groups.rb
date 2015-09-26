@@ -6,8 +6,8 @@ class CreateGroups < ActiveRecord::Migration
       t.string :name
     end
     create_table :groups_users do |t|
-      t.integer :user_id
-      t.integer :group_id
+      t.belongs_to :user, index: true
+      t.belongs_to :group, index: true
       t.timestamps null: false
     end
   end

@@ -31,18 +31,18 @@ ActiveRecord::Schema.define(version: 20150926142358) do
     t.string   "google_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "summary"
+    t.string   "title"
     t.integer  "user_id"
   end
 
   create_table "events", force: :cascade do |t|
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.datetime "start"
+    t.datetime "end"
     t.integer  "user_id"
     t.boolean  "from_google"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "summary"
+    t.string   "title"
     t.integer  "calendar_id"
   end
 
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 20150926142358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "groups_users", ["group_id"], name: "index_groups_users_on_group_id", using: :btree
+  add_index "groups_users", ["user_id"], name: "index_groups_users_on_user_id", using: :btree
 
   create_table "hangouts", force: :cascade do |t|
     t.datetime "created_at",   null: false
