@@ -1,5 +1,7 @@
-<h1>users show <%= @user.name %></h1>
-
+<h1>users show </h1>
+<% if @user %>
+<h1><%= @user.name %></h1>
+<% end  %>
 
 <p>create hangout</p>
 
