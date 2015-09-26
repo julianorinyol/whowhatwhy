@@ -4,14 +4,8 @@
 <p>hangout show</p>
 <p>hangout show</p>
 
-<%= month_calendar do |date| %>
-  <%= date.day %>
-<% end %>
-<%= week_calendar do |date| %>
-  <%= date.day %>
-<% end %>
 
-<%= month_calendar events: @events do |date, events| %>
+<%= week_calendar events: @events do |date, events| %>
   <%= date.day %>
 
   <% events.each do |event| %>
