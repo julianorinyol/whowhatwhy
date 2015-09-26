@@ -11,14 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926025150) do
+ActiveRecord::Schema.define(version: 20150926035003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "hangouts", force: :cascade do |t|
+  create_table "activities", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "calendars", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hangouts", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "owner_id"
+    t.boolean  "all_answered"
+  end
+
+  create_table "table_hangouts_users", id: false, force: :cascade do |t|
+    t.integer "hangout_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

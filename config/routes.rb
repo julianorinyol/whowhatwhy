@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :hangouts
-  get 'profile', to: 'users#show'
+  get '/profile', to: 'users#show'
   # root to: 'visitors#index'
   root to: 'users#show'
 
